@@ -16,25 +16,7 @@ DuckMind unifies interaction with various LLM APIs and enables real-time web sea
 ## Requirements
 
 - Python 3.12 
-- If you want use Groq you need an API key for accessing the LLM service via [GROQ](https://api.groq.com) instead you can use DuckDuckGo ChatAI API
-
-## Installation
-
-1. Clone the repository:
-
-```bash
-git clone
-```
-
-2. Create a new Python environment and install the required packages:
-
-```bash
-python3 -m venv duckmind
-source duckmind/bin/activate
-pip install -r requirements.txt
-```
-
-3. Set up the environment in your IDE:
+- (Optional) If you want use Groq you need an API key for accessing the LLM service via [GROQ](https://console.groq.com/docs/overview), instead you can use DuckDuckGo ChatAI API
 
 ## Usage
 
@@ -56,8 +38,5 @@ Make sure your changes are well documented and tested.
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for more information.
-
-# Disclaimer
-DuckMind integrates external APIs and live search features. Please adhere to the terms of service for any third-party API you use. The project creator is not responsible for any misuse or unexpected behavior arising from these integrations.
 
 Enjoy building your AI-powered applications with DuckMind!
