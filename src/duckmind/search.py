@@ -91,6 +91,7 @@ class Search:
 
         except Exception as e:
             logger.error("Error with Google search: %s", e)
+            raise
 
     def search_ddg(self, query: str) -> str:
         """
