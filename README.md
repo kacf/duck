@@ -101,6 +101,6 @@ DuckMind is licensed under the MIT License. See the [LICENSE](LICENSE) file for 
 
 ---
 
-Happy prototyping with DuckMind!
+Special thanks to [DuckDuckGo](https://duckduckgo.com/), [Groq](https://console.groq.com/docs/overview), and [duckduckgo-search by deedy5](https://pypi.org/project/duckduckgo-search/) for their fantastic resources.
 
-Special thanks to DuckDuckGo, Groq, and deedy5 for their fantastic resources.
+Happy prototyping with DuckMind!
