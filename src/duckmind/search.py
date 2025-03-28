@@ -39,7 +39,7 @@ class Search:
         else:
             print("Failed to retrieve the webpage:", response.status_code)
 
-    def summarize_contents(self, url_list: list) -> str:
+    def summarize_contents(self, url_list: list, is_ddg: bool = True) -> str:
         from ai_manager import AIGenerator
         ai_client = AIGenerator()
         search_results = []
@@ -51,21 +51,29 @@ class Search:
             if url_full_content:
                 prompt = f"""Generate a summary of the following content:
                 {url_full_content}"""
-
-                # Generate a summary of the content using the GPT model
-                summary = ai_client.generate_ddg(prompt)
+                if is_ddg:
+                    # Use the DuckDuckGo API for summarization
+                    summary = ai_client.generate_ddg(prompt)
+                else:
+                    # Use the Groq API for summarization
+                    summary = ai_client.generate(prompt)
                 search_results.append(summary)
 
         return "\n\n".join(search_results)
 
     @staticmethod
-    def merge_contents(contents: str) -> str:
+    def merge_contents(contents: str, is_ddg: bool = True) -> str:
         from ai_manager import AIGenerator
         prompt = f"""Merge the following contents into a single coherent text: 
         {contents}"""
 
         ai_client = AIGenerator()
-        return ai_client.generate_ddg(prompt)
+        if is_ddg:
+            # Use the DuckDuckGo API for merging
+            return ai_client.generate_ddg(prompt)
+        else:
+            # Use the Groq API for merging
+            return ai_client.generate(prompt)
 
     def search_google(self, query: str) -> str | None:
         """
@@ -86,8 +94,8 @@ class Search:
                 if not url.startswith('http'):
                     url_list.remove(url)
 
-            summarized_results = self.summarize_contents(url_list)
-            return self.merge_contents(summarized_results) if len(url_list) > 1 else summarized_results
+            summarized_results = self.summarize_contents(url_list, is_ddg=False)
+            return self.merge_contents(summarized_results, is_ddg=False) if len(url_list) > 1 else summarized_results
 
         except Exception as e:
             logger.error("Error with Google search: %s", e)
