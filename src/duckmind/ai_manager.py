@@ -1,7 +1,7 @@
 import os
 import logging
 import openai
-from duckduckgo_search import DDGS
+from duckai import DuckAI
 from search import Search
 from utils import remove_think_tags
 
@@ -64,8 +64,8 @@ class AIGenerator:
 
         Args:
             keywords (str): The initial message or question to send to the AI.
-            model (str, optional): The model to use. Options include "gpt-4o-mini", "llama-3.3-70b",
-                                   "claude-3-haiku", "o3-mini", "mistral-small-3". Defaults to "gpt-4o-mini".
+            model (str): The model to use: "gpt-4o-mini", "llama-3.3-70b", "claude-3-haiku",
+                "o3-mini", "mistral-small-3". Defaults to "gpt-4o-mini".
             has_search (bool, optional): Whether to include search results in the prompt. Defaults to False.
 
         Returns:
@@ -75,8 +75,8 @@ class AIGenerator:
             if has_search:
                 search_results = Search().search_google(keywords)
                 keywords = f"{keywords}\n\nContext from live search:\n{search_results}"
-            with DDGS() as ddgs:
-                response = ddgs.chat(keywords, model=model)
+            with DuckAI() as dai:
+                response = dai.chat(keywords, model=model)
             return response
         except Exception as e:
             logger.error("Error with DuckDuckGo AI chat: %s", e)

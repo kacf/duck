@@ -38,6 +38,7 @@ class Search:
             return result
         else:
             print("Failed to retrieve the webpage:", response.status_code)
+            return None
 
     def summarize_contents(self, url_list: list, is_ddg: bool = True) -> str:
         from ai_manager import AIGenerator
