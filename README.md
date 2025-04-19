@@ -10,13 +10,13 @@ DuckMind provides developers with an easy-to-use template for rapidly building A
 
 DuckMind supports two primary LLM APIs:
 
-- [DuckDuckGo ChatAI](https://pypi.org/project/duckduckgo-search/): Free, no API key required.
+- [DuckDuckGo ChatAI](https://github.com/deedy5/duckai): Free, no API key required.
 - [GROQ](https://console.groq.com/docs/overview): Requires an API key.
 
 These APIs are unified under a single interface, making it easy to switch between different models. For detailed model information, see:
 
+- [DuckDuckGo ChatAI models](https://github.com/deedy5/duckai?tab=readme-ov-file#1-chat---ai-chat)
 - [GROQ models](https://console.groq.com/docs/models)
-- [DuckDuckGo ChatAI models](https://github.com/deedy5/duckduckgo_search?tab=readme-ov-file#1-chat---ai-chat)
 
 Additionally, DuckMind includes built-in real-time web search integration using Google and DuckDuckGo, even for models without native search capabilities.
 
@@ -98,6 +98,14 @@ Ensure your contributions are clearly documented and thoroughly tested.
 ## License
 
 DuckMind is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Disclaimer
+This library is not affiliated with DuckDuckGo and is for educational purposes only. It is not intended for commercial 
+use or any purpose that violates DuckDuckGo's Terms of Service. By using this library, you acknowledge that you will 
+not use it in a way that infringes on DuckDuckGo's terms. The official DuckDuckGo website can be found 
+at https://duckduckgo.com.
 
 ---
 
