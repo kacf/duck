@@ -44,7 +44,7 @@ class AIGenerator:
         try:
             if has_search:
                 search_results = Search().search_google(prompt)
-                prompt = f"{prompt}\n\nContext from live search:\n{search_results}"
+                prompt = f"{prompt}\n\n<search>\n{search_results}\n</search>"
             chat_completion = self.client.chat.completions.create(
                 messages=[{"role": role, "content": prompt}],
                 model=model,
@@ -74,7 +74,7 @@ class AIGenerator:
         try:
             if has_search:
                 search_results = Search().search_google(keywords)
-                keywords = f"{keywords}\n\nContext from live search:\n{search_results}"
+                keywords = f"{keywords}\n\n<search>\n{search_results}\n</search>"
             with DuckAI() as dai:
                 response = dai.chat(keywords, model=model)
             return response
