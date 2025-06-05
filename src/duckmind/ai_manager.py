@@ -25,7 +25,7 @@ class AIGenerator:
         )
 
     def generate(self, prompt: str, model: str = "llama-3.3-70b-versatile", role: str = "user",
-                 temperature: float = 0.7, has_search: bool = False, is_priting_cot: bool = True) -> str:
+                 temperature: float = 0.7, has_search: bool = False, is_printing_cot: bool = True) -> str:
         """
         Generates text based on the provided prompt using the OpenAI API.
         Models list: https://console.groq.com/docs/models
@@ -36,7 +36,7 @@ class AIGenerator:
             role (str, optional): The role of the message (e.g., "user"). Defaults to "user".
             temperature (float, optional): Temperature setting for text generation. Defaults to 0.7.
             has_search (bool, optional): Whether to include search results in the prompt. Defaults to False.
-            is_priting_cot (bool, optional): Whether to include the "Printing Chain of Thoughts" (COT) in the prompt.
+            is_printing_cot (bool, optional): Whether to include the "Printing Chain of Thoughts" (COT) in the prompt.
 
         Returns:
             str: The generated text.
@@ -50,7 +50,7 @@ class AIGenerator:
                 model=model,
                 temperature=temperature
             )
-            return chat_completion.choices[0].message.content if is_priting_cot \
+            return chat_completion.choices[0].message.content if is_printing_cot \
                 else remove_think_tags(chat_completion.choices[0].message.content)
         except Exception as e:
             logger.error("Error generating text: %s", e)
