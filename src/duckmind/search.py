@@ -2,7 +2,7 @@ import logging
 import requests
 from bs4 import BeautifulSoup
 from googlesearch import search
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 
 # Configure logging
 logger = logging.getLogger(__name__)
