@@ -16,7 +16,7 @@ class AIGenerator:
     """
 
     def __init__(self) -> None:
-        api_key = os.getenv("GROQ_API_KEY")
+        api_key = os.getenv("GROQ_API_KEY", "duifjksd")
         if not api_key:
             raise ValueError("GROQ_API_KEY environment variable is not set")
         self.client = openai.OpenAI(
